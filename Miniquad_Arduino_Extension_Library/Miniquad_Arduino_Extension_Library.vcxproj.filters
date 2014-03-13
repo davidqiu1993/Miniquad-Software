@@ -15,7 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Miniquad_Arduino_Extension_Library.ino" />
     <None Include="Examples\Miniquad_sensor_data\Miniquad_sensor_data.ino">
       <Filter>资源文件</Filter>
     </None>

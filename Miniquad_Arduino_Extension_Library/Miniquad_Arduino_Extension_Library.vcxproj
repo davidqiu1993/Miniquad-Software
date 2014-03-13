@@ -69,9 +69,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="Examples\Miniquad_sensor_data\Miniquad_sensor_data.ino" />
-    <None Include="Miniquad_Arduino_Extension_Library.ino">
-      <FileType>CppCode</FileType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper_3dmath.h" />
