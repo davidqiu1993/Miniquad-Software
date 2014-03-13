@@ -1,8 +1,8 @@
 #include <Wire.h>
-#include <MiniquadZero.h>
+#include <Miniquad.h>
 
-// The global instance for MiniquadZero
-MiniquadZero copter;
+// The global instance for Miniquad
+Miniquad copter;
 
 // CONFIG: Data displayment configuration
 //#define DISPLAY_ROTATION

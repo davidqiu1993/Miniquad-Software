@@ -1,9 +1,9 @@
 #include <Wire.h>
-#include <MiniquadZero.h>
+#include <Miniquad.h>
 
 
 // The global instance for MiniquadZero
-MiniquadZero copter;
+Miniquad copter;
 
 
 void setup()

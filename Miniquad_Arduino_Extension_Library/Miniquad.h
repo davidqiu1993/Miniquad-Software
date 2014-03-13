@@ -8,8 +8,8 @@
 //		- 2013.8.14 : MPU6050 DMP data refreshment program routine changed 
 //					  by David Qiu <david@davidqiu.com>
 //
-// This is a standard library for the quadaxis copter "Miniquad Zero" (C). The 
-// following functions are included:
+// This is a standard library for the quadaxis copter "Miniquad" (C). The following 
+// functions are included:
 //		- Propeller motors controlling
 //		- Gyroscope sensor monitoring (MPU6050)
 //		- Accelerometer sensor monitoring (MPU6050)
@@ -63,8 +63,8 @@ void MpuDataReady()
 }
 
 
-// Class: Quadaxis copter "Miniquad Zero"
-class MiniquadZero
+// Class: Quadaxis copter "Miniquad"
+class Miniquad
 {
 public:
 

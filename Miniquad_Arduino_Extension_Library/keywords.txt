@@ -5,7 +5,7 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-MiniquadZero	KEYWORD1
+Miniquad	KEYWORD1
 Rotation	KEYWORD1
 EulerAngle	KEYWORD1
 YawPitchRoll	KEYWORD1
