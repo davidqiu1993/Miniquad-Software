@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{B008B1
 		Resources\Images\Miniquad_64X64_1375601013.ico = Resources\Images\Miniquad_64X64_1375601013.ico
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Miniquad_Arduino_Extension_Library", "Miniquad_Arduino_Extension_Library\Miniquad_Arduino_Extension_Library.vcxproj", "{567532CB-85F6-4A97-A041-32D7BC52B432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,16 @@ Global
 		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Win32.ActiveCfg = Release|Any CPU
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Debug|Win32.ActiveCfg = Debug|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Debug|Win32.Build.0 = Debug|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Release|Any CPU.ActiveCfg = Release|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Release|Win32.ActiveCfg = Release|Win32
+		{567532CB-85F6-4A97-A041-32D7BC52B432}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
