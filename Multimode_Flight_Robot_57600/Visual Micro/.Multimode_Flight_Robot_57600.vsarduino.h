@@ -1,6 +1,6 @@
 #ifndef _VSARDUINO_H_
 #define _VSARDUINO_H_
-//Board = Arduino Uno
+//Board = Arduino Nano w/ ATmega328
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
 #define ARDUINO 105
@@ -34,6 +34,6 @@ extern "C" void __cxa_pure_virtual() {;}
 //
 
 #include "E:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "E:\Program Files\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
+#include "E:\Program Files\Arduino\hardware\arduino\variants\eightanaloginputs\pins_arduino.h" 
 #include "E:\Projects\#Visual Studio\#Projects\Miniquad Software\Multimode_Flight_Robot_57600\Multimode_Flight_Robot_57600.ino"
 #endif

@@ -1,0 +1,124 @@
+public static class StaticPIDFlyingControllingAlgorithm
+    {
+        // Propeller and engine characteristic parameters
+        private static double _K1 = 0.000000000224;
+        private static double _K2 = 0.00000000000132;
+        private static int _Kr = 1; // Range: {1, -1} ==> MOTOR1 Clockwise rotation       ->_Kr=1
+                                    //                    MOTOR1 Counterclockwise rotation->_Kr=-1
+        private static double _Kt = 2925923;
+        private static double _Tau = 2;
+
+        // Propeller and engine status variables
+        private static double _Throttle1 = 0;
+        private static double _Throttle2 = 0;
+        private static double _Throttle3 = 0;
+        private static double _Throttle4 = 0;
+
+        // Copter characteristic parameters
+        private static double _m = 0.0338; // unit: kilogram
+        private static double _R = 0.44; // unit: meter
+        private static double _Jx=0.0000158/2;
+        private static double _Jy=0.0000158/2;
+        Private static double _Jz=0.0000158;
+
+        //gravity constant
+        private const _g=9.7833;
+        
+        // Computer status variables
+        private static double _Angle_roll = 0, _Angle_roll_last = 0; // !SENSOR, unit: rad
+        public static double Angle_roll
+        {
+            set { _Angle_roll_last = _Angle_roll; _Angle_roll = value / 180*Math.PI; }
+        }
+
+        private static double _Angle_pitch = 0, _Angle_pitch_last = 0; // !SENSOR, unit: rad
+        public static double Angle_pitch
+        {
+            set { _Angle_pitch_last = _Angle_pitch; _Angle_pitch = value / 180*Math.PI; }
+        }
+
+        private static double _Angle_yaw = 0, _Angle_yaw_last = 0; // !SENSOR, unit: rad
+        public static double Angle_yaw
+        {
+            set { _Angle_yaw_last = _Angle_yaw; _Angle_yaw = value / 180*Math.PI; }
+        }
+
+        private static double _Angle_gamma = 0; // !SENSOR, unit: rad
+        public static double Angle_gamma
+        {
+            set { _Angle_gamma = value / 180*Math.PI; }
+        }
+
+        private static double _Accel_z = 0, _Accel_z_sum = 0; // !SENSOR, unit: m/s^2
+        public static double Accel_z
+        {
+            set { _Accel_z = value * _g; _Accel_z_sum += _Accel_z; }
+        }
+
+        //Control strength
+        private static double _A_x=-0.1, _B_x=-0.25;
+        private static double _A_y=-0.1, _B_y=-0.25;
+        private static double _A_z=-0.1, _B_z=-0.25;
+        private static double _A_a=-0.1, _B_a=-0.25;
+        
+        // PID controlling algorithm parameters(according to control strenth
+        private static double _KP_x = -(_A_x - 1)*(_B_x - 1)*_Jx/_T;
+        private static double _KD_x = (1-_A_x*_B_x)/_T/_T;
+        private static double _Angle_roll_E = 0;
+        private static double _Angle_roll_R = 0;
+        private static double _Rotation_xpi_E = 0;
+        private static double _Rotation_xpi_R = 0;
+        
+        private static double _KP_y = -(_A_y - 1)*(_B_y - 1)*_Jy/_T;
+        private static double _KD_y = (1-_A_y*_B_y)/_T/_T;
+        private static double _Angle_roll_E = 0;
+        private static double _Angle_roll_R = 0;
+        private static double _Rotation_ypi_E = 0;
+        private static double _Rotation_ypi_R = 0;
+        
+        private static double _KP_z = -(_A_z - 1)*(_B_z - 1)*_Jz/_T;
+        private static double _KD_z = (1-_A_z*_B_z)/_T/_T;
+        private static double _Angle_roll_E = 0;
+        private static double _Angle_roll_R = 0;
+        private static double _Rotation_zpi_E = 0;
+        private static double _Rotation_zpi_R = 0;
+        
+        private static double _KP_a = _A_a*_B_a*_m;
+        private static double _KI_a = -(_A_a - 1)*(_B_a - 1)*_m;
+        private static double _Accel_z_E = 0;
+        private static double _Accel_z_R = 0;
+        private static double _Velocity_z_E = 0;
+        private static double _Velocity_z_R = 0;
+
+        // Hardware ability related parameters
+        private static double _T = 0.053;//unit: second
+
+        // Temperate calculation variables
+        private static double _X, _Y, _Z, _A;
+        private static void _calculateTemprateVariables()
+        {
+            _X = (_KP_x * (_Angle_roll  - _Angle_roll_E  - _Angle_roll_R ) + _KD_x / _T * (_Angle_roll  - _Angle_roll_last )) / (0.70710678 * _R * _K1);
+            _y = (_KP_y * (_Angle_pitch - _Angle_pitch_E - _Angle_pitch_R) + _KD_y / _T * (_Angle_pitch - _Angle_pitch_last)) / (0.70710678 * _R * _K1);
+            _Z = (_KP_z * (_Angle_yaw   - _Angle_yaw_E   - _Angle_yaw_R  ) + _KD_z / _T * (_Angle_yaw   - _Angle_yaw_last  )) / (_K2 * _Kr);
+            _A = (_KP_a * (_Accel_z     - _Accel_z_E     - _Accel_z_R    ) + _KI_a      * (_Accel_z_sum - _Velocity_z_E / _T - _Velocity_z_R / _T) + _m * _g / Math.Cos(_Angle_gamma)) / (_K1);
+        }
+
+        // Throttle outputs
+        public static int[] GetThrottleOutputs()
+        {
+            int[] throttles = new int[4];
+
+            throttles[0] = (int)(Math.Pow(+_A - _X + _Y + _Z, _Tau / 2) / 4 / _Kt);
+            throttles[1] = (int)(Math.Pow(+_A - _X - _Y - _Z, _Tau / 2) / 4 / _Kt);
+            throttles[2] = (int)(Math.Pow(+_A + _X - _Y + _Z, _Tau / 2) / 4 / _Kt);
+            throttles[3] = (int)(Math.Pow(+_A + _X + _Y - _Z, _Tau / 2) / 4 / _Kt);
+
+            for (int i = 0; i < 4; ++i)
+            {
+                if (throttles[i] < 0) throttles[i] = 0;
+                if (throttles[i] > 255) throttles[i] = 255;
+            }
+
+            return throttles;
+        }
+    }

@@ -5,18 +5,64 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Multimode_Flight_Robot_57600", "Multimode_Flight_Robot_57600\Multimode_Flight_Robot_57600.vcxproj", "{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miniquad Controller", "Miniquad Controller\Miniquad Controller.csproj", "{776A4938-646A-4E73-ABB6-1CA997D4B6B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{5FD66CB4-020F-4D2A-ACAB-D96B5D89CF5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", "{DE393C89-79EF-46D8-8039-F3DB9EC785B9}"
+	ProjectSection(SolutionItems) = preProject
+		Documents\Algorithms\StaticPID_20130825_0013.txt = Documents\Algorithms\StaticPID_20130825_0013.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{343B113A-B172-4589-9F3C-BCDA1762468C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{B008B12D-C287-4DA7-84B3-4AFE77FC03A0}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Images\Miniquad.png = Resources\Images\Miniquad.png
+		Resources\Images\Miniquad_128X128_1375601001.ico = Resources\Images\Miniquad_128X128_1375601001.ico
+		Resources\Images\Miniquad_16X16_1375601029.ico = Resources\Images\Miniquad_16X16_1375601029.ico
+		Resources\Images\Miniquad_256X256_1375601037.ico = Resources\Images\Miniquad_256X256_1375601037.ico
+		Resources\Images\Miniquad_32X32_1375601027.ico = Resources\Images\Miniquad_32X32_1375601027.ico
+		Resources\Images\Miniquad_48X48_1375601023.ico = Resources\Images\Miniquad_48X48_1375601023.ico
+		Resources\Images\Miniquad_64X64_1375601013.ico = Resources\Images\Miniquad_64X64_1375601013.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Debug|Win32.ActiveCfg = Debug|Win32
 		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Debug|Win32.Build.0 = Debug|Win32
+		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Release|Any CPU.ActiveCfg = Release|Win32
+		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Release|Win32.ActiveCfg = Release|Win32
 		{59E6BFE4-82D0-4A87-8BC3-36B79203F9AB}.Release|Win32.Build.0 = Release|Win32
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{776A4938-646A-4E73-ABB6-1CA997D4B6B9}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE393C89-79EF-46D8-8039-F3DB9EC785B9} = {5FD66CB4-020F-4D2A-ACAB-D96B5D89CF5C}
+		{B008B12D-C287-4DA7-84B3-4AFE77FC03A0} = {343B113A-B172-4589-9F3C-BCDA1762468C}
 	EndGlobalSection
 EndGlobal

@@ -1,10 +1,23 @@
 #include <Wire.h>
 #include <MiniquadZero.h>
 
+
+// The global instance for MiniquadZero
+MiniquadZero copter;
+
+
 void setup()
 {
-	init();
+	// Wire initialization
+	Wire.begin();
+
+	// Miniquad Zero initialization
+	copter.Initialize();
+
+	// Serial initialization
+	Serial.begin(57600);
 }
+
 
 void loop()
 {
