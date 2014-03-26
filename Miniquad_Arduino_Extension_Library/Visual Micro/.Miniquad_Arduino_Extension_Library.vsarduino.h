@@ -35,7 +35,6 @@ extern "C" void __cxa_pure_virtual() {;}
 
 #include "E:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "E:\Program Files\Arduino\hardware\arduino\variants\eightanaloginputs\pins_arduino.h" 
-#include "E:\Projects\#Visual Studio\#Projects\Miniquad Software\Miniquad_Arduino_Extension_Library\Miniquad_Arduino_Extension_Library.ino"
 #include "E:\Projects\#Visual Studio\#Projects\Miniquad Software\Miniquad_Arduino_Extension_Library\I2Cdev.cpp"
 #include "E:\Projects\#Visual Studio\#Projects\Miniquad Software\Miniquad_Arduino_Extension_Library\I2Cdev.h"
 #include "E:\Projects\#Visual Studio\#Projects\Miniquad Software\Miniquad_Arduino_Extension_Library\MPU6050.cpp"

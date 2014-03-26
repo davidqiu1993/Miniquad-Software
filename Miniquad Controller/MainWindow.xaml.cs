@@ -129,7 +129,16 @@ namespace Miniquad_Controller
                 MiniquadStatus status = Miniquad.Miniquad.Status;
 
                 // Get the throttle outputs (PC mode)
-                int[] throttles = Miniquad.Miniquad.GetAdjustedThrottleOutputs_PC();
+                //int[] throttles = Miniquad.Miniquad.GetAdjustedThrottleOutputs_PC();
+                //DEBUG:::
+                int[] throttles = {
+                                      0,
+                                      (int)( (-(status.YawPitchRoll.Pitch-90) + status.Rotation.Y*0.2   )   /180  *90),
+                                      0,
+                                      (int)( ((status.YawPitchRoll.Pitch+90)  - status.Rotation.Y*0.2   )   /180  *90)
+                                  };
+                //:::DEBUG
+
 
                 // Check the existence of the status
                 if (status != null)
