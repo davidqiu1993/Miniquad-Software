@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MiniquadPlatform>
+
+  <Enum name="Algorithm">
+    <Item name="ALGORITHM_DEBUG_TEST_PROPELLERS"></Item>
+    <Item name="ALGORITHM_DEBUG_TEST_PID_DUAL"></Item>
+    <Item name="ALGORITHM_DEBUG_TEST_PID_QUAD"></Item>
+    <Item name="ALGORITHM_NORMAL_PID_CONTROL"></Item>
+  </Enum>
+
+  <Enum name="LoopMode">
+    <Item name="LOOPMODE_CLUSTERED"></Item>
+    <Item name="LOOPMODE_BALANCED"></Item>
+  </Enum>
+
+  <Enum name="RunningStatus">
+    <Item name="RUNNINGSTATUS_ON"></Item>
+    <Item name="RUNNINGSTATUS_OFF"></Item>
+    <Item name="RUNNINGSTATUS_TURNING_ON"></Item>
+    <Item name="RUNNINGSTATUS_TURNING_OFF"></Item>
+  </Enum>
+
+  <Namespace name="Commands">
+    <Namespace name="Configuration">
+      <Function name="MarkHorizon">
+        <Configs>
+          <Item name="CONFIG_STATIC_ERROR_ACC_X" globalVariable="StaticError_Acceleration_X" />
+          <Item name="CONFIG_STATIC_ERROR_ACC_Y" globalVariable="StaticError_Acceleration_Y" />
+          <Item name="CONFIG_STATIC_ERROR_ACC_Z" globalVariable="StaticError_Acceleration_Z" />
+          <Item name="CONFIG_STATIC_ERROR_ROT_X" globalVariable="StaticError_Rotation_X" />
+          <Item name="CONFIG_STATIC_ERROR_ROT_Y" globalVariable="StaticError_Rotation_Y" />
+          <Item name="CONFIG_STATIC_ERROR_ROT_Z" globalVariable="StaticError_Rotation_Z" />
+        </Configs>
+      </Function>
+      <Function name="LoadAlgorithm" params="Miniquad::Algorithm algorithm">
+        <Configs>
+          <Item name="CONFIG_ALGORITHM" globalVariable="Algorithm" />
+        </Configs>
+      </Function>
+      <Function name="SetLoopMode" params="Miniquad::LoopMode loopMode">
+        <Configs>
+          <Item name="CONFIG_LOOPMODE" globalVariable="LoopMode" />
+        </Configs>
+      </Function>
+      <Function name="SetParam_PID_P" params="float param_p">
+        <Configs>
+          <Item name="CONFIG_PARAM_PID_P" globalVariable="Param_PID_P" />
+        </Configs>
+      </Function>
+      <Function name="SetParam_PID_I" params="float param_i" config="">
+        <Configs>
+          <Item name="CONFIG_PARAM_PID_I" globalVariable="Param_PID_I" />
+        </Configs>
+      </Function>
+      <Function name="SetParam_PID_D" params="float param_d">
+        <Configs>
+          <Item name="CONFIG_PARAM_PID_D" globalVariable="Param_PID_D" />
+        </Configs>
+      </Function>
+    </Namespace>
+    <Namespace name="Switch">
+      <Function name="SwitchOn">
+        <GlobalInfo>
+          <Item name="CurrentRunningState" />
+        </GlobalInfo>
+      </Function>
+      <Function name="SwitchOff">
+        <GlobalInfo>
+          <Item name="CurrentRunningStatus" />
+        </GlobalInfo>
+      </Function>
+    </Namespace>
+  </Namespace>
+
+  <Namespace name="Feedback">
+
+  </Namespace>
+
+</MiniquadPlatform>
