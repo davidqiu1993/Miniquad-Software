@@ -2,74 +2,249 @@
 <MiniquadPlatform>
 
   <Enum name="Algorithm">
-    <Item name="ALGORITHM_DEBUG_TEST_PROPELLERS"></Item>
-    <Item name="ALGORITHM_DEBUG_TEST_PID_DUAL"></Item>
-    <Item name="ALGORITHM_DEBUG_TEST_PID_QUAD"></Item>
-    <Item name="ALGORITHM_NORMAL_PID_CONTROL"></Item>
+    <EnumItem name="ALGORITHM_DEBUG_TEST_PROPELLERS" />
+    <EnumItem name="ALGORITHM_DEBUG_TEST_PID_DUAL" />
+    <EnumItem name="ALGORITHM_DEBUG_TEST_PID_QUAD" />
+    <EnumItem name="ALGORITHM_NORMAL_PID_CONTROL" />
   </Enum>
 
   <Enum name="LoopMode">
-    <Item name="LOOPMODE_CLUSTERED"></Item>
-    <Item name="LOOPMODE_BALANCED"></Item>
+    <EnumItem name="LOOPMODE_CLUSTERED" />
+    <EnumItem name="LOOPMODE_BALANCED" />
   </Enum>
 
   <Enum name="RunningStatus">
-    <Item name="RUNNINGSTATUS_ON"></Item>
-    <Item name="RUNNINGSTATUS_OFF"></Item>
-    <Item name="RUNNINGSTATUS_TURNING_ON"></Item>
-    <Item name="RUNNINGSTATUS_TURNING_OFF"></Item>
+    <EnumItem name="RUNNINGSTATUS_ON" />
+    <EnumItem name="RUNNINGSTATUS_OFF" />
+    <EnumItem name="RUNNINGSTATUS_TURNING_ON" />
+    <EnumItem name="RUNNINGSTATUS_TURNING_OFF" />
   </Enum>
 
   <Namespace name="Commands">
+    
+    <Function name="Hello" description="Hello to the robot to test connection and obtain basic information.">
+    </Function>
+
     <Namespace name="Configuration">
       <Function name="MarkHorizon">
         <Configs>
-          <Item name="CONFIG_STATIC_ERROR_ACC_X" globalVariable="StaticError_Acceleration_X" />
-          <Item name="CONFIG_STATIC_ERROR_ACC_Y" globalVariable="StaticError_Acceleration_Y" />
-          <Item name="CONFIG_STATIC_ERROR_ACC_Z" globalVariable="StaticError_Acceleration_Z" />
-          <Item name="CONFIG_STATIC_ERROR_ROT_X" globalVariable="StaticError_Rotation_X" />
-          <Item name="CONFIG_STATIC_ERROR_ROT_Y" globalVariable="StaticError_Rotation_Y" />
-          <Item name="CONFIG_STATIC_ERROR_ROT_Z" globalVariable="StaticError_Rotation_Z" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ACC_X" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Y" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Z" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ROT_X" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Y" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Z" />
+        </Configs>
+        <GlobalInfo>
+          <GlobalInfoItem name="StaticError_Acceleration_X" />
+          <GlobalInfoItem name="StaticError_Acceleration_Y" />
+          <GlobalInfoItem name="StaticError_Acceleration_Z" />
+          <GlobalInfoItem name="StaticError_Rotation_X" />
+          <GlobalInfoItem name="StaticError_Rotation_Y" />
+          <GlobalInfoItem name="StaticError_Rotation_Z" />
+        </GlobalInfo>
+      </Function>
+      <Function name="LoadAlgorithm">
+        <Params>
+          <ParamItem name="algorithm" type="Miniquad::Algorithm" />
+        </Params>
+        <Configs>
+          <ConfigItem name="CONFIG_ALGORITHM" globalVariable="Algorithm" />
         </Configs>
       </Function>
-      <Function name="LoadAlgorithm" params="Miniquad::Algorithm algorithm">
+      <Function name="SetLoopMode">
+        <Params>
+          <ParamItem name="loopMode" type="Miniquad::LoopMode" />
+        </Params>
         <Configs>
-          <Item name="CONFIG_ALGORITHM" globalVariable="Algorithm" />
+          <ConfigItem name="CONFIG_LOOPMODE" globalVariable="LoopMode" />
         </Configs>
       </Function>
-      <Function name="SetLoopMode" params="Miniquad::LoopMode loopMode">
+      <Function name="SetParam_PID_P">
+        <Params>
+          <ParamItem name="param_p" type="float" />
+        </Params>
         <Configs>
-          <Item name="CONFIG_LOOPMODE" globalVariable="LoopMode" />
+          <ConfigItem name="CONFIG_PARAM_PID_P" globalVariable="Param_PID_P" />
         </Configs>
       </Function>
-      <Function name="SetParam_PID_P" params="float param_p">
+      <Function name="SetParam_PID_I">
+        <Params>
+          <ParamItem name="param_i" type="float" />
+        </Params>
         <Configs>
-          <Item name="CONFIG_PARAM_PID_P" globalVariable="Param_PID_P" />
+          <ConfigItem name="CONFIG_PARAM_PID_I" globalVariable="Param_PID_I" />
         </Configs>
       </Function>
-      <Function name="SetParam_PID_I" params="float param_i" config="">
+      <Function name="SetParam_PID_D">
+        <Params>
+          <ParamItem name="param_d" type="float" />
+        </Params>
         <Configs>
-          <Item name="CONFIG_PARAM_PID_I" globalVariable="Param_PID_I" />
-        </Configs>
-      </Function>
-      <Function name="SetParam_PID_D" params="float param_d">
-        <Configs>
-          <Item name="CONFIG_PARAM_PID_D" globalVariable="Param_PID_D" />
+          <ConfigItem name="CONFIG_PARAM_PID_D" globalVariable="Param_PID_D" />
         </Configs>
       </Function>
     </Namespace>
+    
+    <Namespace name="Query">
+      <Function name="QueryStaticErrors" description="">
+        <GlobalInfo>
+          <GlobalInfoItem name="StaticError_Acceleration_X" />
+          <GlobalInfoItem name="StaticError_Acceleration_Y" />
+          <GlobalInfoItem name="StaticError_Acceleration_Z" />
+          <GlobalInfoItem name="StaticError_Rotation_X" />
+          <GlobalInfoItem name="StaticError_Rotation_Y" />
+          <GlobalInfoItem name="StaticError_Rotation_Z" />
+        </GlobalInfo>
+      </Function>
+      <Function name="QueryStaticErrors" description="">
+        <Configs>
+          <ConfigItem name="CONFIG_STATIC_ERROR_ACC_X" globalVariable="StaticError_Acceleration_X" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Y" globalVariable="StaticError_Acceleration_Y" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Z" globalVariable="StaticError_Acceleration_Z" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ROT_X" globalVariable="StaticError_Rotation_X" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Y" globalVariable="StaticError_Rotation_Y" />
+          <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Z" globalVariable="StaticError_Rotation_Z" />
+        </Configs>
+      </Function>
+      <Function name="LoadAlgorithm">
+        <Params>
+          <ParamItem name="algorithm" type="Miniquad::Algorithm" />
+        </Params>
+        <Configs>
+          <ConfigItem name="CONFIG_ALGORITHM" globalVariable="Algorithm" />
+        </Configs>
+      </Function>
+      <Function name="SetLoopMode">
+        <Params>
+          <ParamItem name="loopMode" type="Miniquad::LoopMode" />
+        </Params>
+        <Configs>
+          <ConfigItem name="CONFIG_LOOPMODE" globalVariable="LoopMode" />
+        </Configs>
+      </Function>
+      <Function name="SetParam_PID_P">
+        <Params>
+          <ParamItem name="param_p" type="float" />
+        </Params>
+        <Configs>
+          <ConfigItem name="CONFIG_PARAM_PID_P" globalVariable="Param_PID_P" />
+        </Configs>
+      </Function>
+      <Function name="SetParam_PID_I">
+        <Params>
+          <ParamItem name="param_i" type="float" />
+        </Params>
+        <Configs>
+          <ConfigItem name="CONFIG_PARAM_PID_I" globalVariable="Param_PID_I" />
+        </Configs>
+      </Function>
+      <Function name="SetParam_PID_D">
+        <Params>
+          <ParamItem name="param_d" type="float" />
+        </Params>
+        <Configs>
+          <ConfigItem name="CONFIG_PARAM_PID_D" globalVariable="Param_PID_D" />
+        </Configs>
+      </Function>
+    </Namespace>
+
     <Namespace name="Switch">
       <Function name="SwitchOn">
         <GlobalInfo>
-          <Item name="CurrentRunningState" />
+          <GlobalInfoItem name="CurrentRunningState" />
         </GlobalInfo>
       </Function>
       <Function name="SwitchOff">
         <GlobalInfo>
-          <Item name="CurrentRunningStatus" />
+          <GlobalInfoItem name="CurrentRunningStatus" />
         </GlobalInfo>
       </Function>
     </Namespace>
+
+    <Namespace name="Actions">
+
+      <Function name="Interrupt" description="Interrupt and reset the attitude values to default state immediately.">
+      </Function>
+
+      <Namespace name="AttitudeLocking">
+        <Function name="LockPitchAngle" description="Lock the pitch angle to the target value.">
+          <Params>
+            <ParamItem name="pitchAngle" type="float" domain="[-90~90]" description="Target pitch angle in degree. Positive value to tilt front and negative back." />
+          </Params>
+        </Function>
+        <Function name="LockRollAngle" description="Lock the roll angle to the target value.">
+          <Params>
+            <ParamItem name="rollAngle" type="float" domain="[-90~90]" description="Target roll angle in degree. Positive value to tilt right and negative left." />
+          </Params>
+        </Function>
+        <Function name="LockYawSpeed" description="Lock the yaw speed to the target value.">
+          <Params>
+            <ParamItem name="yawSpeed" type="float" domain="[-180~180]" description="Target yaw speed in degree per second. Positive value to rotate anti-clockwise and negative clockwise." />
+          </Params>
+        </Function>
+        <Function name="LockVerticalAcceleration" description="Lock the vertical acceleration to the target value.">
+          <Params>
+            <ParamItem name="verticalAcceleration" type="float" range="[-1~1]" description="Target vertical acceleration in g. Positive value to lift and negative to descent." />
+          </Params>
+        </Function>
+      </Namespace>
+
+      <Namespace name="AttitudeDuration">
+        <Function name="HoldPitchAngle" description="Hold the pitch angle to the target value for a certain time.">
+          <Params>
+            <ParamItem name="pitchAngle" type="float" domain="[-90~90]" description="Target pitch angle in degree. Positive value to tilt front and negative back." />
+            <ParamItem name="holdTime" type="float" domain="[0~?]" description="Duration time in second to hold the target value." />
+          </Params>
+        </Function>
+        <Function name="HoldRollAngle" description="Hold the roll angle to the target value for a certain time.">
+          <Params>
+            <ParamItem name="rollAngle" type="float" domain="[-90~90]" description="Target roll angle in degree. Positive value to tilt right and negative left." />
+            <ParamItem name="holdTime" type="float" domain="[0~?]" description="Duration time in second to hold the target value." />
+          </Params>
+        </Function>
+        <Function name="HoldYawSpeed" description="Hold the yaw speed to the target value for a certain time.">
+          <Params>
+            <ParamItem name="yawSpeed" type="float" domain="[-180~180]" description="Target yaw speed in degree per second. Positive value to rotate anti-clockwise and negative clockwise." />
+            <ParamItem name="holdTime" type="float" domain="[0~?]" description="Duration time in second to hold the target value." />
+          </Params>
+        </Function>
+        <Function name="HoldVerticalAcceleration" description="Hold the vertical acceleration to the target value for a certain time.">
+          <Params>
+            <ParamItem name="verticalAcceleration" type="float" range="[-1~1]" description="Target vertical acceleration in g. Positive value to lift and negative to descent." />
+            <ParamItem name="holdTime" type="float" domain="[0~?]" description="Duration time in second to hold the target value." />
+          </Params>
+        </Function>
+      </Namespace>
+
+      <Namespace name="PositionTransition">
+        <Function name="MoveLinear" description="Move towards a direction by certain distance.">
+          <Params>
+            <ParamItem name="directionAngle" type="float" domain="[-180~180]" description="Target direction angle in degree to self-coordinate." />
+            <ParamItem name="distance" type="float" domain="[0~?]" description="Target transition distance in meter." />
+          </Params>
+        </Function>
+        <Function name="MoveVertical" description="Lift or descent for a certain distance.">
+          <Params>
+            <ParamItem name="heightChange" type="float" description="Target height change in meter." />
+          </Params>
+        </Function>
+        <Function name="RotateMagnetic" description="Change the forward direction in accord to magnetic field.">
+          <Params>
+            <ParamItem name="magneticAngle" type="float" domain="[-180~180]" description="Target magnetic forward direction in degree to magnetic field coordinate." />
+          </Params>
+        </Function>
+        <!--
+        <Function name="MoveGPSPoint" description="Move to target GPS point.">
+          <Params>
+            <ParamItem name="pointGPS" type="GPSPoint" description="Target GPS point to move to." />
+          </Params>
+        </Function>
+        -->
+      </Namespace>
+
+    </Namespace>
+
   </Namespace>
 
   <Namespace name="Feedback">
