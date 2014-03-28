@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <MiniquadPlatform>
-
+ 
   <Enum name="Algorithm">
     <EnumItem name="ALGORITHM_DEBUG_TEST_PROPELLERS" />
     <EnumItem name="ALGORITHM_DEBUG_TEST_PID_DUAL" />
