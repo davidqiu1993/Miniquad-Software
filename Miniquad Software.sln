@@ -29,9 +29,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{B008B1
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Miniquad_Arduino_Extension_Library", "Miniquad_Arduino_Extension_Library\Miniquad_Arduino_Extension_Library.vcxproj", "{567532CB-85F6-4A97-A041-32D7BC52B432}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform Description", "Platform Description", "{4296FDE6-25B2-465C-BD07-8B38A57F7FF6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Description Files", "Description Files", "{44453A54-914F-4F44-822A-FBB491D340B0}"
 	ProjectSection(SolutionItems) = preProject
-		MiniquadPlatform.xml = MiniquadPlatform.xml
+		Description Files\MiniquadPlatform.xml = Description Files\MiniquadPlatform.xml
 	EndProjectSection
 EndProject
 Global
@@ -80,7 +80,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DE393C89-79EF-46D8-8039-F3DB9EC785B9} = {5FD66CB4-020F-4D2A-ACAB-D96B5D89CF5C}
-		{4296FDE6-25B2-465C-BD07-8B38A57F7FF6} = {5FD66CB4-020F-4D2A-ACAB-D96B5D89CF5C}
 		{B008B12D-C287-4DA7-84B3-4AFE77FC03A0} = {343B113A-B172-4589-9F3C-BCDA1762468C}
 	EndGlobalSection
 EndGlobal
