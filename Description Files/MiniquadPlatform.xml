@@ -1,33 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<MiniquadPlatform>
-
-  <Configurations>
-
-    <ConfigSet name="StaticErrors">
-      <ConfigItem name="CONFIG_STATIC_ERROR_ACC_X" varname="StaticError_Acceleration_X" />
-      <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Y" varname="StaticError_Acceleration_Y" />
-      <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Z" varname="StaticError_Acceleration_Z" />
-      <ConfigItem name="CONFIG_STATIC_ERROR_ROT_X" varname="StaticError_Rotation_X" />
-      <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Y" varname="StaticError_Rotation_Y" />
-      <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Z" varname="StaticError_Rotation_Z" />
-    </ConfigSet>
-
-    <ConfigSet name="LoopSettings">
-      <ConfigItem name="CONFIG_LOOP_SETTING_MODE" varname="LoopSetting_Mode" />
-      <ConfigItem name="CONFIG_LOOP_SETTING_TIMES" varname="LoopSetting_Times" />
-    </ConfigSet>
-
-    <ConfigSet name="Algorithm">
-      <ConfigItem name="CONFIG_ALGORITHM" varname="Algorithm" />
-    </ConfigSet>
-
-    <ConfigSet name="Params_PID">
-      <ConfigItem name="CONFIG_PARAM_PID_P" varname="Param_PID_P" />
-      <ConfigItem name="CONFIG_PARAM_PID_I" varname="Param_PID_I" />
-      <ConfigItem name="CONFIG_PARAM_PID_D" varname="Param_PID_D" />
-    </ConfigSet>
-
-  </Configurations>
+<MiniquadPlatform version="1.0.0.0">
 
   <Enum name="Algorithm">
     <EnumItem name="ALGORITHM_DEBUG_TEST_PROPELLERS" />
@@ -47,6 +19,42 @@
     <EnumItem name="RUNNINGSTATUS_TURNING_ON" />
     <EnumItem name="RUNNINGSTATUS_TURNING_OFF" />
   </Enum>
+
+  <Configurations>
+
+    <ConfigSet name="StaticErrors">
+      <ConfigItem name="CONFIG_STATIC_ERROR_ACC_X" varname="StaticError_Acceleration_X" type="float" description="Static error of x-axis acceleration." />
+      <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Y" varname="StaticError_Acceleration_Y" type="float" description="Static error of y-axis acceleration." />
+      <ConfigItem name="CONFIG_STATIC_ERROR_ACC_Z" varname="StaticError_Acceleration_Z" type="float" description="Static error of z-axis acceleration." />
+      <ConfigItem name="CONFIG_STATIC_ERROR_ROT_X" varname="StaticError_Rotation_X" type="float" description="Static error of x-axis rotational speed." />
+      <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Y" varname="StaticError_Rotation_Y" type="float" description="Static error of y-axis rotational speed." />
+      <ConfigItem name="CONFIG_STATIC_ERROR_ROT_Z" varname="StaticError_Rotation_Z" type="float" description="Static error of z-axis rotational speed." />
+    </ConfigSet>
+
+    <ConfigSet name="LoopSettings">
+      <ConfigItem name="CONFIG_LOOP_SETTING_MODE" varname="LoopSetting_Mode" type="Miniquad::LoopMode" description="Mode of a complete running logic." />
+      <ConfigItem name="CONFIG_LOOP_SETTING_TIMES" varname="LoopSetting_Times" type="uint16_t" description="Loop times of control logic in a control block." />
+    </ConfigSet>
+
+    <ConfigSet name="Algorithm">
+      <ConfigItem name="CONFIG_ALGORITHM" varname="Algorithm" type="uint16_t" description="Algorithm to run at the next launch." />
+    </ConfigSet>
+
+    <ConfigSet name="Params_PID">
+      <ConfigItem name="CONFIG_PARAM_PID_P" varname="Param_PID_P" type="float" description="Parameter P of the PID algorithm." />
+      <ConfigItem name="CONFIG_PARAM_PID_I" varname="Param_PID_I" type="float" description="Parameter I of the PID algorithm." />
+      <ConfigItem name="CONFIG_PARAM_PID_D" varname="Param_PID_D" type="float" description="Parameter D of the PID algorithm." />
+    </ConfigSet>
+
+  </Configurations>
+
+  <GlobalInformation>
+
+    <GlobalInfoSet name="Status">
+      <GlobalInfoItem name="CurrentRunningStatus" type="Miniquad::RunningStatus" description="Current running status of the robot." />
+    </GlobalInfoSet>
+
+  </GlobalInformation>
 
   <Namespace name="Commands">
 
