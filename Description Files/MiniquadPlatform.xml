@@ -172,6 +172,52 @@
   </Namespace>
 
   <Namespace name="Feedback">
+    
+    <Namespace name="NavigationData">
+       
+      <Function name="Tilt" description="Return pitch and roll infomation">
+        <Params>
+          <ParamItem name="pitch" type="float" domain="[-180~180]" description="Current pitch value from sensor" />
+          <ParamItem name="roll" type="float" domain="[-180~180]" description="Current roll value from sensor" />
+        </Params>
+      </Function>
+      
+      <Function name="Heading" description="Return current heading according to the magnetic compass sensor">
+        <Params>
+          <ParamItem name="heading" type="float" domain="[0~360]" description="Current heading according to the compass" />
+        </Params>
+      </Function>
+      
+      <Function name="RotationalSpeed" description="Return current rotation speed toward 3 direction.">
+        <Params>
+          <ParamItem name="rX" type="float" domain="[-?~?]" description="Angular velocity along x-axis" />
+          <ParamItem name="rY" type="float" domain="[-?~?]" description="Angular velocity along y-axis" />
+          <ParamItem name="rZ" type="float" domain="[-?~?]" description="Angular velocity along z-axis" />
+        </Params>
+      </Function>
+      
+      <Function name="Acceleration" description="Return current acceleration toward 3 direction.">
+        <Params>
+          <ParamItem name="aX" type="float" domain="[-?~?]" description="Acceleration along x-axis" />
+          <ParamItem name="aY" type="float" domain="[-?~?]" description="Acceleration along y-axis" />
+          <ParamItem name="aZ" type="float" domain="[-?~?]" description="Acceleration along z-axis" />
+        </Params>
+      </Function>
+      
+      <Function name="Altitude" description="Return current altitude.">
+        <Params>
+          <ParamItem name="altitude" type="float" domain="[-?~?]" description="Current altitude of the quad" />
+        </Params>
+      </Function>
+      
+      <Function name="GPSinfo" description="Return current location according to the GPS sensor.">
+        <Params>
+          <ParamItem name="longtitude" type="float" domain="[-180~180]" description="Degree of longtitude from GPS device" />
+          <ParamItem name="latitude" type="float" domain="[-180~180]" description="Degree of latitude from GPS device" />
+        </Params>
+      </Function>
+    
+    </Namespace>
 
   </Namespace>
 
