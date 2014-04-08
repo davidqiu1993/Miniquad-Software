@@ -218,6 +218,38 @@
       </Function>
     
     </Namespace>
+    
+    <Namespace name="StatusData">
+      
+      <Function name="BatteryStatus" description="Return information about battery percentage">
+        <Params>
+          <ParamItem name="batteryPercentage" type="float" domain="[0~100]" description="Battery percentage." />
+        </Params>
+      </Function>  
+    
+    </Namespace>
+    
+    <Namespace name="Echo">
+      
+      <Function name="HelloReply" description="Response for Hello call.">
+        <Params>
+          <ParamItem name="id" type="string" description="ID of this miniquod." />
+          <ParamItem name="version" type="string" description="Firmware version of the control program." />
+        </Params>
+      </Function>
+    
+    </Namespace>
+    
+    <Namespace name="CriticalInfomation">
+      
+      <Function name="Error" description="Return critical error infomation, highest priority">
+        <Params>
+          <ParamItem name="errorCode" type="integer" description="errorCode of the error"/>
+          <ParamItem name="additionalInfo" type="string" description="Additional infomation of the error"/>
+        </Params>
+      </Function>
+    
+    </Namespace>
 
   </Namespace>
 
