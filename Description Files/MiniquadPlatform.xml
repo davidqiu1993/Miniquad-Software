@@ -20,6 +20,14 @@
     <EnumItem name="RUNNINGSTATUS_TURNING_OFF" />
   </Enum>
 
+  <PlatformConfigurations>
+
+    <PlatformConfigSet name="Communication">
+      <PlatformConfigItem name="Baudrate" type="int" value="57600" description="The baudrate of serial port communication." />
+    </PlatformConfigSet>
+
+  </PlatformConfigurations>
+
   <Configurations>
 
     <ConfigSet name="StaticErrors">

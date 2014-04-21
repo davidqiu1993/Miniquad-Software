@@ -3,7 +3,7 @@
 //Board = Arduino Nano w/ ATmega328
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
-#define ARDUINO 105
+#define ARDUINO 101
 #define ARDUINO_MAIN
 #define __AVR__
 #define __avr__
@@ -32,6 +32,13 @@ extern "C" void __cxa_pure_virtual() {;}
 
 //
 //
+void ctrlLogic();
+void commLogic();
+void stopThrottles();
+void refreshThrottles();
+char readChar();
+int readInt();
+int readFloat();
 
 #include "E:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "E:\Program Files\Arduino\hardware\arduino\variants\eightanaloginputs\pins_arduino.h" 
